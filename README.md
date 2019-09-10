@@ -13,6 +13,7 @@ Project scrapes various websites about Mars and creates a web Application to dis
 **Mars Hemisphere - https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars**
 
 The Project creates a webpage displaying data scraped from these websites in the following layout - 
+The index.html will take the scrapped data as a arameter and build each element separately on the webpage.
 
 ### Page 1
 ![Page 1](img/pg1.png)
@@ -40,6 +41,7 @@ To run the webpage -
 
 
 ## Flask App
+Python based web app to scrape Mars data and display to a webpage. Also store it to a local database. 
 The app has two routes - 
 
 <pre>
@@ -50,6 +52,6 @@ The app has two routes -
  <pre>
 /scrape
 </pre>
-<p> Scraps the five web pages to build a dictionary. Stores the data into a local MongoDB database. Displays the data scraped into the webpage. 
+<p> Scraps the five web pages to build a dictionary. Stores the data into a local MongoDB database. Displays the data scraped into the webpage. Th route will call another python script which does the scrapping and build the entire data into a dictionary.
 
 
