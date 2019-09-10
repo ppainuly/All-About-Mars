@@ -12,14 +12,6 @@ Project scrapes various websites about Mars and creates a web Application to dis
 
 **Mars Hemisphere - https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars**
 
-The Project creates a webpage displaying data scraped from these websites in the following layout - 
-
-### Page 1
-![Page 1](img/pg1.png)
-
-### Page2
-![Page 2](img/pg2.png)
-
 ## DataBase - 
 
 Project stores the data into Local Mono Database. 
@@ -41,3 +33,11 @@ The app has two routes -
 /scrape
 </pre>
 <p> Scraps the five web pages to build a dictionary. Stores the data into a local MongoDB database. Displays the data scraped into the webpage. 
+
+The Project creates a webpage displaying data scraped from these websites in the following layout - 
+
+### Page 1
+![Page 1](img/pg1.png)
+
+### Page2
+![Page 2](img/pg2.png)
