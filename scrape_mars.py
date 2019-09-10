@@ -4,6 +4,7 @@ from splinter import Browser
 import pandas as pd 
 import requests 
 from urllib.parse import urlparse
+import time
 
 mars_dict = {}
 
@@ -175,9 +176,10 @@ def mars_hemisphere():
 
             # Append title and Image URL to dictionary
             hemisphere_img_url.append({"title" : title, "img_url" : hemispheres_base_url + img_full_url})
-
+            time.sleep(1) 
         # Store into dictionary
-        print(hemisphere_img_url)
+        #print(hemisphere_img_url)
+
         mars_dict['hemisphere_img_url'] = hemisphere_img_url
 
         browser.quit()
@@ -187,4 +189,10 @@ def mars_hemisphere():
         print("ERROR : " + str(e))
         return
 
+d = scrape_all()
 
+for key,values in d.items():
+    print("")
+    print(key)
+    print(values)
+    print("")
