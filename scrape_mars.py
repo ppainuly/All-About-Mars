@@ -26,6 +26,7 @@ def scrape_all():
         mars_dict = scrape_jpl()   
         mars_dict = mars_facts()
         mars_dict = mars_hemisphere()
+        mars_dict = mars_weather()
         return mars_dict
 
     except Exception as e:
@@ -135,6 +136,26 @@ def mars_facts():
         print("ERROR : " + str(e))
         return
 
+#Mars Weather
+def mars_weather():
+    try:
+        browser = init_browser()
+        tw_url = 'https://twitter.com/marswxreport?lang=en'
+        browser.visit(tw_url)
+
+        html = browser.html
+        soup = BeautifulSoup(html,"html.parser")
+
+        mars_weather = soup.find("p",class_="TweetTextSize TweetTextSize--normal js-tweet-text tweet-text")#"js-tweet-text-container")
+
+        mars_dict['mars_weather'] = mars_weather.text
+        browser.quit()
+        return mars_dict
+
+    except Exception as e:
+        print("Error : " + str(e))
+        return
+
 # Mars Hemispheres
 # Visit the USGS Astrogeology site to obtain high resolution images for each of Mars's hemispheres. 
 # Save image URL and the image in full resolution. Store image url in a dictionary
@@ -189,10 +210,3 @@ def mars_hemisphere():
         print("ERROR : " + str(e))
         return
 
-d = scrape_all()
-
-for key,values in d.items():
-    print("")
-    print(key)
-    print(values)
-    print("")

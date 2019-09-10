@@ -15,28 +15,70 @@
 
                 <div class="jumbotron text-center" style="background-image: url(https://images.unsplash.com/photo-1517455612269-8377057c3b55?ixlib=rb-1.2.1&auto=format&fit=crop&w=773&q=80); background-size: 50%; height: 100%;">
                     <h1 class="display-7" style="color: white">Mission to Mars</h1>
-                    <a class="btn btn-lg text-white" style="background-color:black; opacity: 0.5;" href="/scrape" role="button">Scrape New Data</a>
+                    <a class="btn btn-lg text-white" style="background-color:black; opacity: 0.5;" href="/scrape" role="button">Click to Scrape New Data</a>
                 </div>
-
+                {% for item in data %} 
                 <div class="container">
                         <h3>Latest Mars News</h3>
-                        <h6 style="color: #c1440e">{{ data.news_title }}</h6>
-                        <p>{{ data.news_paragraph }}</p>
+                        <h6 style="color: #c1440e">{{ item.news_title }}</h6>
+                        <p>{{ item.news_paragraph }}</p>
                 </div>
                 <div class="container">
                     <div class="row">
                             <div class="col-lg-8 col-md-8 col-sm-12">
-
+                                    <h3>Featured Mars Image</h3>
+                                    <img src="{{ item.featured_image }}" style="max-width:100%; max-height: auto;" alt="Mars Featured Image">
 
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-12">
 
+                                    <div class="card" style="width: 20rem;">
+                                            <div class="card-body text-white bg-dark">
+                                                <h6 class="card-title">Current Weather on Mars</h6>
+                                                <p class="card-text">{{ item.mars_weather }}</p>
+                                            </div>
+                    
+                                        </div>
+                    
+                                        <!-- Table -->
+                                        <br>
+                                        <h3>Mars Facts</h3>
+                                        <div style="max-width: 420px; max-height: 150px; font-size: 10px; margin-bottom: 55px;">
+                                                {{item.mars_facts|safe}}
+                                                <a href="{{item.mars_facts}}"></a>
+                                        </div>
+                                         
+
                             </div>
                     </div>
+                    <div class="container-fluid">
+                            <h3>Mars Hemispheres</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    {% for hemisphere in item.hemisphere_img_url[0:2] %}
+                                    
+                                    <img src="{{hemisphere.img_url}}" alt="hemisphere" style="width:50%;">
+                                    <div class="caption"style="font-weight: bold;">
+                                        {{hemisphere.title}}
+                                    </div>                                           
+                                    {% endfor %}
+                                </div>
+                                <div class="col-md-6">
+                                    {% for hemisphere in item.hemisphere_img_url[2:4] %}
+                                    
+                                    <img src="{{hemisphere.img_url}}" alt="hemisphere" style="width:50%;">
+                                    <div class="caption" style="font-weight: bold;">
+                                        {{hemisphere.title}}
+                                    </div>  
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+
 
                 </div>
 
-
+            {% endfor %}
          </div>
      </body>         
 
