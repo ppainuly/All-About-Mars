@@ -31,12 +31,12 @@ Collection : mars_info
 
 To run the webpage - 
 
-*Download(clone) the Project
-*Run app.py
-*Now open https:////localhost:27017
-*You will see the main page. Click the "Scrape" button.
-*Wait 2 mins
-*The scrapping will be executed and final Webpage for Mission to Mars will be displayed.
+* Download(clone) the Project
+* Run app.py
+* Now open https:////localhost:27017
+* You will see the main page. Click the "Scrape" button.
+* Wait 2 mins
+* The scrapping will be executed and final Webpage for Mission to Mars will be displayed(Similar to Page 1 & 2 Mock up above).
 
 
 ## Flask App
