@@ -9,6 +9,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
             crossorigin="anonymous">
+            <link rel="stylesheet" href="bootstrap.min.css">
     </head>
      <body>
          <div class="container">
@@ -32,8 +33,9 @@
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-12">
 
-                                    <div class="card" style="width: 20rem;">
-                                            <div class="card-body text-white bg-dark">
+                                    <div class="card border-dark mb-3" style="width: 20rem;">
+                                        <div class="card-header">What's Trending...</div>
+                                            <div class="card-body">
                                                 <h6 class="card-title">Current Weather on Mars</h6>
                                                 <p class="card-text">{{ item.mars_weather }}</p>
                                             </div>
@@ -54,7 +56,7 @@
                     <div class="container-fluid">
                             <h3>Mars Hemispheres</h3>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-lg-6">
                                     {% for hemisphere in item.hemisphere_img_url[0:2] %}
                                     
                                     <img src="{{hemisphere.img_url}}" alt="hemisphere" style="width:50%;">
@@ -63,7 +65,7 @@
                                     </div>                                           
                                     {% endfor %}
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-lg-6">
                                     {% for hemisphere in item.hemisphere_img_url[2:4] %}
                                     
                                     <img src="{{hemisphere.img_url}}" alt="hemisphere" style="width:50%;">
